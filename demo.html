@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Dashboard - SuryaBright</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background:#fff; color:#111;">
+  <div class="dashboard-navbar">
+    <a href="index.html" class="dashboard-navbar-logo">
+      <img src="images/blue-logo.png" alt="SuryaBright Logo" style="height:48px;">
+    </a>
+    <div class="dashboard-navbar-left">
+      <span class="dashboard-welcome">Welcome back, User</span>
+      <span class="dashboard-desc">Monitor and control your solar street lights across Surabaya. All data is live and up to date.</span>
+    </div>
+    <div class="dashboard-navbar-right">
+      <span id="dashboard-clock" class="dashboard-clock"></span>
+      <div class="dashboard-user-menu">
+        <img src="https://ui-avatars.com/api/?name=User&background=2196f3&color=fff&rounded=true&size=40" alt="User Profile" class="dashboard-user-avatar">
+        <div class="dashboard-user-dropdown">
+          <div class="dashboard-user-name">User</div>
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-main" style="color:#111; display: flex; gap: 0; align-items: flex-start; margin-top: 80px;">
+    <div style="flex: 1; min-width: 0;">
+      <div class="locations-list">
+        <!-- Example for 7 locations with mock data and animated details -->
+        <div class="location-card">
+          <div class="location-title">Keputih, Surabaya</div>
+          <table class="lights-table">
+            <tr><th>Light</th><th>Status</th><th>Power</th><th>Temp (°C)</th><th>Last Sync</th><th>Actions</th></tr>
+            <tr>
+              <td>Light 1</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="92"></div></td>
+              <td><span class="temp" data-base="32">32.0</span></td>
+              <td>2 min ago</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Light 2</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="85"></div></td>
+              <td><span class="temp" data-base="31">31.0</span></td>
+              <td>Just now</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="location-card">
+          <div class="location-title">Semolowaru, Surabaya</div>
+          <table class="lights-table">
+            <tr><th>Light</th><th>Status</th><th>Power</th><th>Temp (°C)</th><th>Last Sync</th><th>Actions</th></tr>
+            <tr>
+              <td>Light 1</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="77"></div></td>
+              <td><span class="temp" data-base="33">33.0</span></td>
+              <td>1 min ago</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="location-card">
+          <div class="location-title">Nginden, Surabaya</div>
+          <table class="lights-table">
+            <tr><th>Light</th><th>Status</th><th>Power</th><th>Temp (°C)</th><th>Last Sync</th><th>Actions</th></tr>
+            <tr>
+              <td>Light 1</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="64"></div></td>
+              <td><span class="temp" data-base="30">30.0</span></td>
+              <td>3 min ago</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Light 2</td>
+              <td><span class="unit-status" data-status="offline">Offline</span></td>
+              <td><div class="battery-bar" data-level="0"></div></td>
+              <td><span class="temp" data-base="0">0.0</span></td>
+              <td>10 min ago</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Light 3</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="53"></div></td>
+              <td><span class="temp" data-base="29">29.0</span></td>
+              <td>Just now</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="location-card">
+          <div class="location-title">Mulyorejo, Surabaya</div>
+          <table class="lights-table">
+            <tr><th>Light</th><th>Status</th><th>Power</th><th>Temp (°C)</th><th>Last Sync</th><th>Actions</th></tr>
+            <tr>
+              <td>Light 1</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="41"></div></td>
+              <td><span class="temp" data-base="28">28.0</span></td>
+              <td>5 min ago</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Light 2</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="88"></div></td>
+              <td><span class="temp" data-base="34">34.0</span></td>
+              <td>Just now</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="location-card">
+          <div class="location-title">Rungkut, Surabaya</div>
+          <table class="lights-table">
+            <tr><th>Light</th><th>Status</th><th>Power</th><th>Temp (°C)</th><th>Last Sync</th><th>Actions</th></tr>
+            <tr>
+              <td>Light 1</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="73"></div></td>
+              <td><span class="temp" data-base="32">32.0</span></td>
+              <td>2 min ago</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="location-card">
+          <div class="location-title">Sukolilo, Surabaya</div>
+          <table class="lights-table">
+            <tr><th>Light</th><th>Status</th><th>Power</th><th>Temp (°C)</th><th>Last Sync</th><th>Actions</th></tr>
+            <tr>
+              <td>Light 1</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="68"></div></td>
+              <td><span class="temp" data-base="31">31.0</span></td>
+              <td>Just now</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Light 2</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="59"></div></td>
+              <td><span class="temp" data-base="30">30.0</span></td>
+              <td>1 min ago</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="location-card">
+          <div class="location-title">Gubeng, Surabaya</div>
+          <table class="lights-table">
+            <tr><th>Light</th><th>Status</th><th>Power</th><th>Temp (°C)</th><th>Last Sync</th><th>Actions</th></tr>
+            <tr>
+              <td>Light 1</td>
+              <td><span class="unit-status" data-status="standby">Standby</span></td>
+              <td><div class="battery-bar" data-level="80"></div></td>
+              <td><span class="temp" data-base="33">33.0</span></td>
+              <td>Just now</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Light 2</td>
+              <td><span class="unit-status" data-status="offline">Offline</span></td>
+              <td><div class="battery-bar" data-level="0"></div></td>
+              <td><span class="temp" data-base="0">0.0</span></td>
+              <td>10 min ago</td>
+              <td class="light-actions">
+                <button class="action-btn action-deploy">Deploy</button>
+                <button class="action-btn action-save">Save</button>
+                <button class="action-btn action-diagnostics">Diag</button>
+                <button class="action-btn action-off">Off</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-side-widget">
+      <div class="terminal-widget">
+        <div class="terminal-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title">IoT Device Log</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <!-- Animated log lines will appear here -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Clock
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('dashboard-clock').textContent = `${h}:${m}:${s}`;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+  // Animated terminal log
+  const terminalBody = document.getElementById('terminal-body');
+  const logLines = [
+    '[INFO] Device 01 (Keputih) status: Online',
+    '[INFO] Device 02 (Keputih) status: Online',
+    '[INFO] Device 01 (Semolowaru) status: Online',
+    '[INFO] Device 01 (Nginden) status: Online',
+    '[WARN] Device 02 (Nginden) status: Offline',
+    '[INFO] Device 03 (Nginden) status: Online',
+    '[INFO] Device 01 (Mulyorejo) status: Online',
+    '[INFO] Device 02 (Mulyorejo) status: Online',
+    '[INFO] Device 01 (Rungkut) status: Online',
+    '[INFO] Device 01 (Sukolilo) status: Online',
+    '[INFO] Device 02 (Sukolilo) status: Online',
+    '[INFO] Device 01 (Gubeng) status: Online',
+    '[WARN] Device 02 (Gubeng) status: Offline',
+    '[INFO] Power deployment started on Device 01 (Keputih)',
+    '[INFO] Power saving mode enabled on Device 02 (Keputih)',
+    '[ERROR] Device 02 (Nginden) failed diagnostics',
+    '[INFO] Diagnostics passed on Device 01 (Mulyorejo)',
+    '[INFO] All systems nominal',
+    '[INFO] Battery check: Device 01 (Keputih) 92%',
+    '[INFO] Battery check: Device 02 (Keputih) 85%',
+    '[INFO] Battery check: Device 01 (Semolowaru) 77%',
+    '[INFO] Battery check: Device 01 (Nginden) 64%',
+    '[INFO] Battery check: Device 03 (Nginden) 53%',
+    '[INFO] Battery check: Device 01 (Mulyorejo) 41%',
+    '[INFO] Battery check: Device 02 (Mulyorejo) 88%',
+    '[INFO] Battery check: Device 01 (Rungkut) 73%',
+    '[INFO] Battery check: Device 01 (Sukolilo) 68%',
+    '[INFO] Battery check: Device 02 (Sukolilo) 59%',
+    '[INFO] Battery check: Device 01 (Gubeng) 80%',
+    '[INFO] Battery check: Device 02 (Gubeng) 0%',
+  ];
+  let logIndex = 0;
+  function addLogLine() {
+    const line = document.createElement('div');
+    line.textContent = logLines[logIndex % logLines.length];
+    if (line.textContent.includes('[ERROR]')) line.className = 'log-error';
+    else if (line.textContent.includes('[WARN]')) line.className = 'log-warn';
+    else line.className = 'log-info';
+    terminalBody.appendChild(line);
+    terminalBody.scrollTop = terminalBody.scrollHeight;
+    logIndex++;
+    if (terminalBody.children.length > 18) terminalBody.removeChild(terminalBody.children[0]);
+  }
+  setInterval(addLogLine, 1200);
+  for (let i = 0; i < 8; i++) addLogLine();
+  // User menu dropdown
+  const userMenu = document.querySelector('.dashboard-user-menu');
+  const dropdown = userMenu.querySelector('.dashboard-user-dropdown');
+  userMenu.addEventListener('mouseenter', () => dropdown.style.display = 'block');
+  userMenu.addEventListener('mouseleave', () => dropdown.style.display = 'none');
+  // Battery bar fill
+  document.querySelectorAll('.battery-bar').forEach(bar => {
+    const level = bar.getAttribute('data-level');
+    bar.innerHTML = `<div class='bar-inner' style='width:${level}%;background:linear-gradient(90deg,#2196f3,#4caf50);'></div><span style='color:#111;'>${level}%</span>`;
+  });
+  // Animate temperature values
+  document.querySelectorAll('.temp').forEach(tempEl => {
+    let base = parseFloat(tempEl.getAttribute('data-base'));
+    let value = base;
+    setInterval(() => {
+      if (base === 0) return;
+      let delta = (Math.random() - 0.5) * 0.3;
+      value = Math.max(28, Math.min(36, value + delta));
+      tempEl.textContent = value.toFixed(1);
+    }, 1200 + Math.random()*800);
+  });
+  // Interactive status buttons
+  document.querySelectorAll('.light-actions').forEach(actions => {
+    const statusEl = actions.parentElement.querySelector('.unit-status');
+    actions.querySelector('.action-deploy').onclick = () => { statusEl.textContent = 'Deployed'; statusEl.setAttribute('data-status','deployed'); };
+    actions.querySelector('.action-save').onclick = () => { statusEl.textContent = 'Power Saving'; statusEl.setAttribute('data-status','power-saving'); };
+    actions.querySelector('.action-diagnostics').onclick = () => { statusEl.textContent = 'Error'; statusEl.setAttribute('data-status','error'); };
+    actions.querySelector('.action-off').onclick = () => { statusEl.textContent = 'Standby'; statusEl.setAttribute('data-status','standby'); };
+  });
+});
+</script>
+</body>
+</html>
