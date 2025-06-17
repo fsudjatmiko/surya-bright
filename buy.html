@@ -34,7 +34,7 @@
           <li>✓ 1 Year Warranty</li>
         </ul>
         <div class="price">Rp 10.000.000</div>
-        <a href="mailto:suryabright@gmail.com?subject=SuryaBright%20Product%20Order%20Request&body=Hello%20SuryaBright%20Team%2C%0A%0AI%20would%20like%20to%20order%20the%20Basic%20model.%0A%0AMy%20details%3A%0AName%3A%20%0AEmail%3A%20%0APhone%3A%20%0AAddress%3A%20%0AQuantity%3A%20%0A%0AThank%20you%2C%0A%5BYour%20Name%5D" class="btn">Buy Basic</a>
+        <button class="btn" onclick="openPaymentModal('Basic', 'Rp 10.000.000', 10000000)">Buy Basic</button>
       </div>
       <div class="product-card featured" style="background: white; color: #333;">
         <div class="product-icon">🌟</div>
@@ -48,7 +48,7 @@
           <li>✓ Remote Diagnostics</li>
         </ul>
         <div class="price">Rp 12.000.000</div>
-        <a href="mailto:suryabright@gmail.com?subject=SuryaBright%20Product%20Order%20Request&body=Hello%20SuryaBright%20Team%2C%0A%0AI%20would%20like%20to%20order%20the%20Pro%20model.%0A%0AMy%20details%3A%0AName%3A%20%0AEmail%3A%20%0APhone%3A%20%0AAddress%3A%20%0AQuantity%3A%20%0A%0AThank%20you%2C%0A%5BYour%20Name%5D" class="btn">Buy Pro</a>
+        <button class="btn" onclick="openPaymentModal('Pro', 'Rp 12.000.000', 12000000)">Buy Pro</button>
       </div>
       <div class="product-card premium" style="background: white; color: #333;">
         <div class="product-icon">👑</div>
@@ -62,14 +62,264 @@
           <li>✓ Weather Resistance IP67</li>
         </ul>
         <div class="price">Rp 15.000.000</div>
-        <a href="mailto:suryabright@gmail.com?subject=SuryaBright%20Product%20Order%20Request&body=Hello%20SuryaBright%20Team%2C%0A%0AI%20would%20like%20to%20order%20the%20Premium%20model.%0A%0AMy%20details%3A%0AName%3A%20%0AEmail%3A%20%0APhone%3A%20%0AAddress%3A%20%0AQuantity%3A%20%0A%0AThank%20you%2C%0A%5BYour%20Name%5D" class="btn">Buy Premium</a>
+        <button class="btn" onclick="openPaymentModal('Premium', 'Rp 15.000.000', 15000000)">Buy Premium</button>
       </div>
     </div>
   </main>
+
+  <!-- Payment Modal -->
+  <div id="payment-modal" class="payment-modal">
+    <div class="payment-modal-content">
+      <div class="payment-header">
+        <h2>Complete Your Purchase</h2>
+        <span class="payment-close" onclick="closePaymentModal()">&times;</span>
+      </div>
+      
+      <div class="payment-body">
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <div class="order-item">
+            <span id="product-name">SuryaBright Basic</span>
+            <span id="product-price">Rp 10.000.000</span>
+          </div>
+          <div class="order-total">
+            <strong>Total: <span id="total-price">Rp 10.000.000</span></strong>
+          </div>
+        </div>
+
+        <div class="payment-form">
+          <div class="form-section">
+            <h3>Customer Information</h3>
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="customer-name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="customer-email" placeholder="your.email@example.com" required>
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" id="customer-phone" placeholder="08123456789" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Address</label>
+              <textarea id="customer-address" placeholder="Enter your complete address" required></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Payment Method</h3>
+            <div class="payment-methods">
+              <div class="payment-category">
+                <h4>Bank Transfer</h4>
+                <div class="payment-options">
+                  <label class="payment-option">
+                    <input type="radio" name="payment-method" value="bca">
+                    <div class="payment-option-content">
+                      <span class="payment-logo">🏦</span>
+                      <span>BCA</span>
+                    </div>
+                  </label>
+                  <label class="payment-option">
+                    <input type="radio" name="payment-method" value="mandiri">
+                    <div class="payment-option-content">
+                      <span class="payment-logo">🏦</span>
+                      <span>Mandiri</span>
+                    </div>
+                  </label>
+                  <label class="payment-option">
+                    <input type="radio" name="payment-method" value="bni">
+                    <div class="payment-option-content">
+                      <span class="payment-logo">🏦</span>
+                      <span>BNI</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="payment-category">
+                <h4>E-Wallet</h4>
+                <div class="payment-options">
+                  <label class="payment-option">
+                    <input type="radio" name="payment-method" value="ovo">
+                    <div class="payment-option-content">
+                      <span class="payment-logo">💳</span>
+                      <span>OVO</span>
+                    </div>
+                  </label>
+                  <label class="payment-option">
+                    <input type="radio" name="payment-method" value="dana">
+                    <div class="payment-option-content">
+                      <span class="payment-logo">💰</span>
+                      <span>DANA</span>
+                    </div>
+                  </label>
+                  <label class="payment-option">
+                    <input type="radio" name="payment-method" value="gopay">
+                    <div class="payment-option-content">
+                      <span class="payment-logo">🚗</span>
+                      <span>GoPay</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="payment-category">
+                <h4>QR Code</h4>
+                <div class="payment-options">
+                  <label class="payment-option">
+                    <input type="radio" name="payment-method" value="qris">
+                    <div class="payment-option-content">
+                      <span class="payment-logo">📱</span>
+                      <span>QRIS</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-actions">
+            <button type="button" class="btn-secondary" onclick="closePaymentModal()">Cancel</button>
+            <button type="button" class="btn" onclick="processPayment()">Pay Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="success-modal" class="payment-modal">
+    <div class="success-modal-content">
+      <div class="success-icon">✅</div>
+      <h2>Payment Successful!</h2>
+      <p>Thank you for your purchase. Your order has been confirmed.</p>
+      <div class="order-details">
+        <p><strong>Order ID:</strong> <span id="order-id"></span></p>
+        <p><strong>Product:</strong> <span id="success-product"></span></p>
+        <p><strong>Amount:</strong> <span id="success-amount"></span></p>
+        <p><strong>Payment Method:</strong> <span id="success-method"></span></p>
+      </div>
+      <button class="btn" onclick="closeSuccessModal()">Close</button>
+    </div>
+  </div>
+
   <footer>
     <p>&copy; 2025 SuryaBright. All rights reserved.</p>
   </footer>
   <script src="particles.js"></script>
   <script src="script.js"></script>
+  <script>
+    let currentProduct = '';
+    let currentPrice = '';
+    let currentAmount = 0;
+
+    function openPaymentModal(product, price, amount) {
+      currentProduct = product;
+      currentPrice = price;
+      currentAmount = amount;
+      
+      document.getElementById('product-name').textContent = 'SuryaBright ' + product;
+      document.getElementById('product-price').textContent = price;
+      document.getElementById('total-price').textContent = price;
+      document.getElementById('payment-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePaymentModal() {
+      document.getElementById('payment-modal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+      clearForm();
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('success-modal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function clearForm() {
+      document.getElementById('customer-name').value = '';
+      document.getElementById('customer-email').value = '';
+      document.getElementById('customer-phone').value = '';
+      document.getElementById('customer-address').value = '';
+      
+      const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+      paymentMethods.forEach(method => method.checked = false);
+    }
+
+    function processPayment() {
+      // Validate form
+      const name = document.getElementById('customer-name').value;
+      const email = document.getElementById('customer-email').value;
+      const phone = document.getElementById('customer-phone').value;
+      const address = document.getElementById('customer-address').value;
+      const paymentMethod = document.querySelector('input[name="payment-method"]:checked');
+
+      if (!name || !email || !phone || !address) {
+        alert('Please fill in all customer information fields.');
+        return;
+      }
+
+      if (!paymentMethod) {
+        alert('Please select a payment method.');
+        return;
+      }
+
+      // Simulate payment processing
+      const processingIndicator = document.querySelector('.payment-actions .btn');
+      const originalText = processingIndicator.textContent;
+      processingIndicator.textContent = 'Processing...';
+      processingIndicator.disabled = true;
+
+      setTimeout(() => {
+        // Close payment modal
+        closePaymentModal();
+        
+        // Generate order ID
+        const orderId = 'SB' + Date.now();
+        
+        // Show success modal
+        document.getElementById('order-id').textContent = orderId;
+        document.getElementById('success-product').textContent = 'SuryaBright ' + currentProduct;
+        document.getElementById('success-amount').textContent = currentPrice;
+        document.getElementById('success-method').textContent = getPaymentMethodName(paymentMethod.value);
+        
+        document.getElementById('success-modal').style.display = 'flex';
+        
+        // Reset button
+        processingIndicator.textContent = originalText;
+        processingIndicator.disabled = false;
+      }, 2000);
+    }
+
+    function getPaymentMethodName(method) {
+      const methods = {
+        'bca': 'BCA Bank Transfer',
+        'mandiri': 'Mandiri Bank Transfer',
+        'bni': 'BNI Bank Transfer',
+        'ovo': 'OVO',
+        'dana': 'DANA',
+        'gopay': 'GoPay',
+        'qris': 'QRIS'
+      };
+      return methods[method] || method;
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const paymentModal = document.getElementById('payment-modal');
+      const successModal = document.getElementById('success-modal');
+      
+      if (event.target === paymentModal) {
+        closePaymentModal();
+      }
+      if (event.target === successModal) {
+        closeSuccessModal();
+      }
+    }
+  </script>
 </body>
 </html>
